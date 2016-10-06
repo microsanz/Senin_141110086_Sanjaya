@@ -130,5 +130,57 @@ namespace Latihan_2_1
                 monthCalendar1.AddBoldedDate(new DateTime(2016, bulan, Convert.ToInt32(numericUpDown1.Value)));
             }
         }
+
+        private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            numericUpDown1.Value = monthCalendar1.SelectionStart.Day;
+            if (monthCalendar1.SelectionStart.Month== 1){
+                domainUpDown1.Text = "Januari";
+            }
+            else if (monthCalendar1.SelectionStart.Month == 2)
+            {
+                domainUpDown1.Text = "Februari";
+            }
+            else if (monthCalendar1.SelectionStart.Month == 3)
+            {
+                domainUpDown1.Text = "Maret";
+            }
+            else if (monthCalendar1.SelectionStart.Month == 4)
+            {
+                domainUpDown1.Text = "April";
+            }
+            else if (monthCalendar1.SelectionStart.Month == 5)
+            {
+                domainUpDown1.Text = "Mei";
+            }
+            else if (monthCalendar1.SelectionStart.Month == 6)
+            {
+                domainUpDown1.Text = "Juni";
+            }
+            else if (monthCalendar1.SelectionStart.Month == 7)
+            {
+                domainUpDown1.Text = "Juli";
+            }
+            else if (monthCalendar1.SelectionStart.Month == 8)
+            {
+                domainUpDown1.Text = "Agustus";
+            }
+            else if (monthCalendar1.SelectionStart.Month == 9)
+            {
+                domainUpDown1.Text = "September";
+            }
+            else if (monthCalendar1.SelectionStart.Month == 10)
+            {
+                domainUpDown1.Text = "Oktober";
+            }
+            else if (monthCalendar1.SelectionStart.Month == 11)
+            {
+                domainUpDown1.Text = "November";
+            }
+            else if (monthCalendar1.SelectionStart.Month == 12)
+            {
+                domainUpDown1.Text = "Desember";
+            }
+        }
     }
 }
