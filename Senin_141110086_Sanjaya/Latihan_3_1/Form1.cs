@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Drawing.Text;
 namespace Latihan_3_1
 {
     public partial class Form1 : Form
@@ -18,18 +18,91 @@ namespace Latihan_3_1
             InitializeComponent();
             ComboBox box = (ComboBox)toolStripComboBox1.Control;
             box.DrawMode = DrawMode.OwnerDrawVariable;
-            //box.MeasureItem += new MeasureItemEventHandler(box_MeasureItem);
             box.DrawItem += new DrawItemEventHandler(toolStripComboBox1_DrawItem);
+
+            ComboBox box2 = (ComboBox)toolStripComboBox2.Control;
+            box2.DrawMode = DrawMode.OwnerDrawVariable;
+            box2.DrawItem += new DrawItemEventHandler(toolStripComboBox2_DrawItem);
+        }
+        public void fillFontCombo()
+        {
+            FontFamily[] families = FontFamily.Families;
+            //Loop Through System Fonts
+            foreach (FontFamily family in families)
+            {
+                //Set Current Font's Style To bold
+                FontStyle style = FontStyle.Bold;
+                //These Are Only Available In Italic, Not In "Regular",
+                //So Test For Them, Else, Exception!!
+                if (family.Name == "Monotype Corsiva" || family.Name == "Brush Script MT"
+                || family.Name == "Harlow Solid Italic" || family.Name == "Palace Script MT" ||
+                family.Name == "Vivaldi")
+                {
+                    //Set Style To Italic, To Overt "Regular" & Exception
+                    style = style | FontStyle.Italic;
+                }
+                Font FCFont = new Font(family.Name, 10, style, GraphicsUnit.Point);
+                //Display The Font Combo Items
+                toolStripComboBox2.Items.Add(FCFont.Name);
+            }
+            toolStripComboBox2.SelectedIndex = 1;
         }
 
+
+
+        //Add drawitem eventhandler for the combobox to paint the combobox
+
+        private void toolStripComboBox2_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            //If the index is invalid, do nothing and exit.
+            if (e.Index == -1 || e.Index >= toolStripComboBox2.Items.Count)
+                return;
+            //Draw the background of the item.
+            e.DrawBackground();
+            // Draw the focus rectangle
+            if ((e.State & DrawItemState.Focus) != 0)
+                e.DrawFocusRectangle();
+            Brush b = null;
+            try
+            {
+                // Create Background Brush.
+                b = new SolidBrush(e.ForeColor);
+                // Draw the item.
+                FontStyle style = FontStyle.Bold;
+                string strfont = toolStripComboBox2.Items[e.Index].ToString();
+                if (strfont == "Monotype Corsiva" || strfont == "Brush Script MT"
+                || strfont == "Harlow Solid Italic" || strfont == "Palace Script MT"
+                || strfont == "Vivaldi")
+                {
+                    //Set Style To Italic, To Overt "Regular" & Exception
+                    style = style | FontStyle.Italic | FontStyle.Regular;
+                }
+
+                Font nfont = new Font(strfont, 10, style);
+                e.Graphics.DrawString(
+                strfont,
+                nfont,
+                b,
+                e.Bounds
+                );
+
+            } // End try
+            finally
+            {
+                // Dispose the brush
+                if (b != null)
+                    b.Dispose();
+                b = null;
+            } // End finally
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             toolStripComboBox1.ComboBox.DrawMode = DrawMode.OwnerDrawFixed;
-            //AddHandler ToolStripComboBox1.ComboBox.DrawItem, AddressOf DrawItem;
             lstColor = coloredComboItems.GetColors();
-            toolStripComboBox1.ComboBox.DataSource = lstColor ;
+            toolStripComboBox1.ComboBox.DataSource = lstColor;
             toolStripComboBox1.ComboBox.ValueMember = "Color";
             toolStripComboBox1.ComboBox.DisplayMember = "Name";
+            fillFontCombo();
         }
         private void toolStripComboBox1_DrawItem(object sender, DrawItemEventArgs e)
         {
@@ -49,11 +122,6 @@ namespace Latihan_3_1
                 e.DrawFocusRectangle();
 
             }
-        }
-
-        private void comboBox1_DrawItem(object sender, DrawItemEventArgs e)
-        {
-
         }
     }
 }
