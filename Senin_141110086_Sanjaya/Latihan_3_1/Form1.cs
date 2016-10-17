@@ -16,16 +16,22 @@ namespace Latihan_3_1
         public Form1()
         {
             InitializeComponent();
+            ComboBox box = (ComboBox)toolStripComboBox1.Control;
+            box.DrawMode = DrawMode.OwnerDrawVariable;
+            //box.MeasureItem += new MeasureItemEventHandler(box_MeasureItem);
+            box.DrawItem += new DrawItemEventHandler(toolStripComboBox1_DrawItem);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            toolStripComboBox1.ComboBox.DrawMode = DrawMode.OwnerDrawFixed;
+            //AddHandler ToolStripComboBox1.ComboBox.DrawItem, AddressOf DrawItem;
             lstColor = coloredComboItems.GetColors();
-            comboBox1.DataSource = lstColor ;
-            comboBox1.ValueMember = "Color";
-            comboBox1.DisplayMember = "Name";
+            toolStripComboBox1.ComboBox.DataSource = lstColor ;
+            toolStripComboBox1.ComboBox.ValueMember = "Color";
+            toolStripComboBox1.ComboBox.DisplayMember = "Name";
         }
-        private void comboBox1_DrawItem(object sender, DrawItemEventArgs e)
+        private void toolStripComboBox1_DrawItem(object sender, DrawItemEventArgs e)
         {
             e.DrawBackground();
             if (e.Index >= 0)
@@ -43,6 +49,11 @@ namespace Latihan_3_1
                 e.DrawFocusRectangle();
 
             }
+        }
+
+        private void comboBox1_DrawItem(object sender, DrawItemEventArgs e)
+        {
+
         }
     }
 }
