@@ -103,6 +103,13 @@ namespace Latihan_3_1
             toolStripComboBox1.ComboBox.ValueMember = "Color";
             toolStripComboBox1.ComboBox.DisplayMember = "Name";
             fillFontCombo();
+            for (int i = 1; i <= 100; i++)
+            {
+                toolStripComboBox3.ComboBox.Items.Add(i.ToString());
+            }
+            toolStripComboBox3.ComboBox.Text = richTextBox1.SelectionFont.Size.ToString();
+            toolStripComboBox2.ComboBox.Text = richTextBox1.SelectionFont.FontFamily.Name;
+            toolStripComboBox1.ComboBox.Text = richTextBox1.SelectionColor.Name;
         }
         private void toolStripComboBox1_DrawItem(object sender, DrawItemEventArgs e)
         {
