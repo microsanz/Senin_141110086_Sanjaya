@@ -102,14 +102,14 @@ namespace Latihan_3_1
             toolStripComboBox1.ComboBox.DataSource = lstColor;
             toolStripComboBox1.ComboBox.ValueMember = "Color";
             toolStripComboBox1.ComboBox.DisplayMember = "Name";
+            toolStripComboBox3.ComboBox.Text = richTextBox1.SelectionFont.Size.ToString();
+            toolStripComboBox2.ComboBox.Text = richTextBox1.SelectionFont.FontFamily.Name;
+            toolStripComboBox1.ComboBox.Text = richTextBox1.SelectionColor.Name;
             fillFontCombo();
             for (int i = 1; i <= 100; i++)
             {
                 toolStripComboBox3.ComboBox.Items.Add(i.ToString());
             }
-            toolStripComboBox3.ComboBox.Text = richTextBox1.SelectionFont.Size.ToString();
-            toolStripComboBox2.ComboBox.Text = richTextBox1.SelectionFont.FontFamily.Name;
-            toolStripComboBox1.ComboBox.Text = richTextBox1.SelectionColor.Name;
         }
         private void toolStripComboBox1_DrawItem(object sender, DrawItemEventArgs e)
         {
@@ -129,6 +129,34 @@ namespace Latihan_3_1
                 e.DrawFocusRectangle();
 
             }
+        }
+        
+        private void toolStripComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionColor = Color.FromName(toolStripComboBox1.ComboBox.Text);
+
+        }
+        private void font(object sender, EventArgs e)
+        {
+            FontFamily foFa = new FontFamily("Arial"); //BUG!!! BUG!!! BUG!!! BUG!!! BUG!!! BUG!!! 
+            toolStripButton1.Checked = !toolStripButton1.Checked;
+            toolStripButton2.Checked = !toolStripButton2.Checked;
+            toolStripButton3.Checked = !toolStripButton3.Checked;
+            FontStyle test = FontStyle.Regular;
+            if (toolStripButton1.Checked) test = test | FontStyle.Bold;
+            if (toolStripButton2.Checked) test = test | FontStyle.Italic;
+            if (toolStripButton3.Checked) test = test | FontStyle.Underline;
+
+            richTextBox1.SelectionFont = new Font(foFa, Convert.ToInt32(toolStripComboBox3.ComboBox.Text),test);
+        }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(richTextBox1.Rtf);
         }
     }
 }
