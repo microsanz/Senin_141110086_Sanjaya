@@ -139,15 +139,12 @@ namespace Latihan_3_1
         private void font(object sender, EventArgs e)
         {
             FontFamily foFa = new FontFamily("Arial"); //BUG!!! BUG!!! BUG!!! BUG!!! BUG!!! BUG!!! 
-            toolStripButton1.Checked = !toolStripButton1.Checked;
-            toolStripButton2.Checked = !toolStripButton2.Checked;
-            toolStripButton3.Checked = !toolStripButton3.Checked;
             FontStyle test = FontStyle.Regular;
             if (toolStripButton1.Checked) test = test | FontStyle.Bold;
             if (toolStripButton2.Checked) test = test | FontStyle.Italic;
             if (toolStripButton3.Checked) test = test | FontStyle.Underline;
 
-            richTextBox1.SelectionFont = new Font(foFa, Convert.ToInt32(toolStripComboBox3.ComboBox.Text),test);
+            richTextBox1.SelectionFont = new Font(foFa, Convert.ToSingle(toolStripComboBox3.ComboBox.Text),test);
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -157,6 +154,42 @@ namespace Latihan_3_1
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             MessageBox.Show(richTextBox1.Rtf);
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            FontFamily foFa = new FontFamily("Arial"); //BUG!!! BUG!!! BUG!!! BUG!!! BUG!!! BUG!!! 
+            toolStripButton3.Checked = !toolStripButton3.Checked;
+            FontStyle test = FontStyle.Regular;
+            if (toolStripButton1.Checked) test = test | FontStyle.Bold;
+            if (toolStripButton2.Checked) test = test | FontStyle.Italic;
+            if (toolStripButton3.Checked) test = test | FontStyle.Underline;
+            richTextBox1.SelectionFont = new Font(foFa, Convert.ToSingle(toolStripComboBox3.ComboBox.Text), test);
+
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            FontFamily foFa = new FontFamily("Arial"); //BUG!!! BUG!!! BUG!!! BUG!!! BUG!!! BUG!!! 
+            toolStripButton2.Checked = !toolStripButton2.Checked;
+            FontStyle test = FontStyle.Regular;
+            if (toolStripButton1.Checked) test = test | FontStyle.Bold;
+            if (toolStripButton2.Checked) test = test | FontStyle.Italic;
+            if (toolStripButton3.Checked) test = test | FontStyle.Underline;
+            richTextBox1.SelectionFont = new Font(foFa, Convert.ToSingle(toolStripComboBox3.ComboBox.Text), test);
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            FontFamily foFa = new FontFamily("Arial"); //BUG!!! BUG!!! BUG!!! BUG!!! BUG!!! BUG!!! 
+            toolStripButton1.Checked = !toolStripButton1.Checked;
+            FontStyle test = FontStyle.Regular;
+            if (toolStripButton1.Checked) test = test | FontStyle.Bold;
+            if (toolStripButton2.Checked) test = test | FontStyle.Italic;
+            if (toolStripButton3.Checked) test = test | FontStyle.Underline;
+            richTextBox1.SelectionFont = new Font(foFa, Convert.ToSingle(toolStripComboBox3.ComboBox.Text), test);
+
         }
     }
 }
