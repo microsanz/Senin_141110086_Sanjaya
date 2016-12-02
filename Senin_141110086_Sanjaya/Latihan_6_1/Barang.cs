@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using System.Data;
 namespace Latihan_6_1
 {
     public partial class btnSimpan : Form
@@ -72,6 +71,7 @@ namespace Latihan_6_1
         {
             showAll();
             reset();
+            dataGridView1.ClearSelection();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -87,6 +87,23 @@ namespace Latihan_6_1
         private void btnKeluar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedCells.Count > 0)
+            {
+                int index = dataGridView1.SelectedCells[0].RowIndex;
+                txtID.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
+                txtKode.Text= dataGridView1.Rows[index].Cells[1].Value.ToString();
+                txtNama.Text = dataGridView1.Rows[index].Cells[2].Value.ToString();
+                txtJumlahAwal.Text= dataGridView1.Rows[index].Cells[3].Value.ToString();
+                txtHargaHPP.Text= dataGridView1.Rows[index].Cells[4].Value.ToString();
+                txtHargaJual.Text= dataGridView1.Rows[index].Cells[5].Value.ToString();
+                //MessageBox.Show(dataGridView1.Rows[index].Cells[6].Value.ToString());
+                dtpCreatedAt.Value = DateTime.Parse(dataGridView1.Rows[index].Cells[6].Value.ToString());
+                dtpEditedAt.Value = DateTime.Parse(dataGridView1.Rows[index].Cells[7].Value.ToString());
+            }
         }
     }
 }
