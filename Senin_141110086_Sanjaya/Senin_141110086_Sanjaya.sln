@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Latihan_5_1", "Latihan_5_1\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "volleyball_problem", "volleyball_problem\volleyball_problem.csproj", "{CB4C3006-A679-4CA3-99A1-0D766677E076}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Latihan_6_1", "Latihan_6_1\Latihan_6_1.csproj", "{BF4321D5-55E4-44BB-8A22-DD67C6092020}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Latihan_pos", "Latihan_pos\Latihan_pos.csproj", "{BF4321D5-55E4-44BB-8A22-DD67C6092020}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
