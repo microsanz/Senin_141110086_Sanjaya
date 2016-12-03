@@ -89,21 +89,22 @@ namespace Latihan_6_1
             this.Close();
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView1.SelectedCells.Count > 0)
             {
                 int index = dataGridView1.SelectedCells[0].RowIndex;
                 txtID.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
-                txtKode.Text= dataGridView1.Rows[index].Cells[1].Value.ToString();
+                txtKode.Text = dataGridView1.Rows[index].Cells[1].Value.ToString();
                 txtNama.Text = dataGridView1.Rows[index].Cells[2].Value.ToString();
-                txtJumlahAwal.Text= dataGridView1.Rows[index].Cells[3].Value.ToString();
-                txtHargaHPP.Text= dataGridView1.Rows[index].Cells[4].Value.ToString();
-                txtHargaJual.Text= dataGridView1.Rows[index].Cells[5].Value.ToString();
+                txtJumlahAwal.Text = dataGridView1.Rows[index].Cells[3].Value.ToString();
+                txtHargaHPP.Text = dataGridView1.Rows[index].Cells[4].Value.ToString();
+                txtHargaJual.Text = dataGridView1.Rows[index].Cells[5].Value.ToString();
                 //MessageBox.Show(dataGridView1.Rows[index].Cells[6].Value.ToString());
                 dtpCreatedAt.Value = DateTime.Parse(dataGridView1.Rows[index].Cells[6].Value.ToString());
                 dtpEditedAt.Value = DateTime.Parse(dataGridView1.Rows[index].Cells[7].Value.ToString());
             }
+
         }
     }
 }
