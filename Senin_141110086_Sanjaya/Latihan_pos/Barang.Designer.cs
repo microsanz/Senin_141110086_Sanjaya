@@ -1,6 +1,6 @@
 ﻿namespace Latihan_6_1
 {
-    partial class btnSimpan
+    partial class frmBarang
     {
         /// <summary>
         /// Required designer variable.
@@ -56,12 +56,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.Location = new System.Drawing.Point(0, 214);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(606, 269);
             this.dataGridView1.TabIndex = 99;
@@ -92,6 +94,7 @@
             this.txtKode.Name = "txtKode";
             this.txtKode.Size = new System.Drawing.Size(200, 20);
             this.txtKode.TabIndex = 4;
+            this.txtKode.TextChanged += new System.EventHandler(this.txtKode_TextChanged);
             // 
             // label2
             // 
@@ -109,6 +112,7 @@
             this.txtNama.Name = "txtNama";
             this.txtNama.Size = new System.Drawing.Size(200, 20);
             this.txtNama.TabIndex = 6;
+            this.txtNama.TextChanged += new System.EventHandler(this.txtNama_TextChanged);
             // 
             // label3
             // 
@@ -234,7 +238,7 @@
             this.dtpEditedAt.Size = new System.Drawing.Size(200, 20);
             this.dtpEditedAt.TabIndex = 21;
             // 
-            // btnSimpan
+            // frmBarang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -259,7 +263,7 @@
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "btnSimpan";
+            this.Name = "frmBarang";
             this.Text = "Barang";
             this.Load += new System.EventHandler(this.Barang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

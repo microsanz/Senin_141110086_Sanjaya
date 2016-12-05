@@ -19,7 +19,7 @@ namespace Latihan_6_1
 
         private void barangToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            btnSimpan formBarang = new btnSimpan();
+            frmBarang formBarang = new frmBarang();
             formBarang.MdiParent = this;
             formBarang.Show();
         }
