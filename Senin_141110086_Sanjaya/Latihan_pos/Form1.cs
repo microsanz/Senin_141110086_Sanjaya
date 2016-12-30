@@ -33,5 +33,19 @@ namespace Latihan_6_1
         {
             Application.Exit();
         }
+
+        private void supplierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Supplier formBarang = new Supplier();
+            formBarang.MdiParent = this;
+            formBarang.Show();
+        }
+
+        private void customerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCustomer formBarang = new frmCustomer();
+            formBarang.MdiParent = this;
+            formBarang.Show();
+        }
     }
 }
